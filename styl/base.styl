@@ -1,0 +1,89 @@
+/* 基础布局 */
+* {
+  background-color: base_bgc;
+  color: title_color;
+}
+html {
+  font-size: 16px;
+}
+
+.container {
+  padding: 0 base_padding;
+}
+
+
+/* 头部部分 */
+.header {
+  position relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: - base_padding;
+    content: "";
+    width: 100vw;
+    height: 2px;
+    background-color: border_color;  
+  }
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo--icon {
+  width: 70px;
+  height: 70px;
+  background-color: pink;
+}
+
+.logo--title {
+  margin-left: 10px;
+}
+
+.header-search {
+  width: 450px;
+  padding: 10px 20px;
+  color: text_color;
+  border-radius: border_radius;
+  background-color: input_bgc;
+  border: 1.4px solid input_border;
+
+  &::placeholder {
+    color: input_placeholder_color;
+  }
+}
+
+
+.header-list {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 40px;
+
+  .active {
+    font-weight: 560;
+    color: text_color_main;  
+  }
+
+}
+
+
+.header-item {
+  color: text_color;
+}
+
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  column-gap: 40px;
+  margin-top: 60px;
+}
