@@ -1,29 +1,41 @@
+<!--
+ * @Author: '超绝大帅哥' '3425395584@qq.com'
+ * @Date: 2025-12-19 17:12:50
+ * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
+ * @LastEditTime: 2025-12-20 19:08:33
+ * @FilePath: \blog\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./public/favicon.ico" />
+  <title>代码纪事</title>
+ <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/index.css">
-
-  <title>代码纪事</title>
+ 
 </head>
-<body>
-  <div class="container">
 
-  <header class="header">
-    <div class="header-left">
-      <a href="#">
-        <h1 class="logo">
-          <div class="logo--icon"></div>
-          <span class="logo--title text-xl">代码纪事</span>
-        </h1>
-      </a>
-    </div>
-    <input class="header-search text-sm" placeholder="搜索文章..." />
-    <div class="header-right">
-        <ul class="header-list">
+<body>
+  <div class="blog-container">
+
+    <!-- 头部部分 start -->
+    <header class="header">
+      <div class="header-left">
+        <a href="#">
+          <h1 class="logo">
+            <img class="logo--icon" src="./public/logo.png"></img>
+            <span class="logo--title text-xl">代码纪事</span>
+          </h1>
+        </a>
+      </div>
+      <input class="header-search text-sm hidden-xs" placeholder="搜索文章..." />
+      <div class="header-right">
+        <ul class="header-list   hidden-xs hidden-sm hidden-md">
           <li class="header-item text-base active"><a href="#">首页</a></li>
           <li class="header-item text-base"><a href="#">文章</a></li>
           <li class="header-item text-base"><a href="#">笔记</a></li>
@@ -31,15 +43,257 @@
           <li class="header-item text-base"><a href="#">课程</a></li>
           <li class="header-item text-base"><a href="#">关于</a></li>
         </ul>
-    </div>
+        <img src="./public/img/list.svg" class="header-list_icon hidden-lg" alt="选项" >
+      </div>
 
-  </header>
-  <main class="main">
-    <div class="main-left" style="height: 200px;background-color: pink;"></div>
-    <div class="main-right"  style="height: 200px;background-color: blue;"></div>
-  </main>
-  <footer class="footer"></footer>
-    
+    </header>
+    <!-- 头部部分 end -->
+
+    <!-- 主体部分 start -->
+    <main class="main">
+      <!-- 个人简介部分 start -->
+      <div class="main-left visible-lg-block">
+        <div class="main-left--person">
+          <img class="person--avatar" src="./public/img/avatar.jpeg"></img>
+          <span class="person--nickname text-xl">暖阳</span>
+          <span class="person-motto text-xs">用代码温暖世界，用文字照亮前路</span>
+          <div class="person-data">
+            <div class="person-data--article"><span class="text-xs person-data--article_icon">文章</span><span
+                class="person-data--article_num text-base">128k</span></div>
+            <div class="person-data--reader"><span class="text-xs person-data--reader_icon">读者</span><span
+                class="person-data--reader_num text-base">5.2k</span></div>
+          </div>
+          <span class="person-tag text-sm">
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+            前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+          </span>
+          <div class="person-nav">
+            <div class="person-nav_gth person-nav_item"></div>
+            <div class="person-nav_bili  person-nav_item"></div>
+            <div class="person-nav_email  person-nav_item"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 个人简介部分 end -->
+
+      <!-- 文章列表部分 start -->
+      <div class="main-right">
+        <div class="main-right-list">
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-right-article">
+            <div class="article-title text-xl">
+              React18新特性详解: 并发渲染与自动批处理
+            </div>
+            <div class="article-des text-sm">
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+              深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
+            </div>
+            <div class="article-about text-xs">
+              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <div class="article-tags">
+                <span class="article-tags_item">#react</span>
+                <span class="article-tags_item">javascript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- 文章列表部分 end -->
+    </main>
+    <!-- 主体部分 end -->
+
+
+    <!-- 底部部分  start -->
+    <footer class="footer"></footer>
+    <!-- 底部部分  end -->
   </div>
 </body>
 
