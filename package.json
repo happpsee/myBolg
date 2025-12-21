@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run stylesheet",
+    "dev": "npm run template && npm run stylesheet",
+    "template": "node ./scripts/execHbs.js",
     "stylesheet": "stylus --compress ./styl/index.styl --watch --out ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.18.2"
+  "packageManager": "pnpm@10.18.2",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
 }

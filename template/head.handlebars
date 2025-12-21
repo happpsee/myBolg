@@ -1,0 +1,23 @@
+<!-- 头部部分 start -->
+<header class="header">
+  <div class="header-left">
+    <a href="#">
+      <h1 class="header-logo">
+        <img class="header-logo--icon" src="./public/logo.png"></img>
+        <span class="header-logo--title text-xl">代码纪事</span>
+      </h1>
+    </a>
+  </div>
+  <input class="header-search text-sm hidden-xs" placeholder="搜索文章..." />
+  <div class="header-right">
+    <ul class="header-list   hidden-xs hidden-sm hidden-md">
+      <li class="header-list--item  text-base active"><a href="#">首页</a></li>
+      {{#each navList}}
+      <li class="header-list--item  text-base"><a href="#">{{this}}</a></li>
+      {{/each}}
+    </ul>
+    <img src="./public/img/list.svg" class="header-list--icon hidden-lg" alt="选项">
+  </div>
+
+</header>
+<!-- 头部部分 end -->
