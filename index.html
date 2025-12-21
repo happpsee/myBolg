@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-19 17:12:50
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2025-12-20 19:08:33
+ * @LastEditTime: 2025-12-20 21:59:23
  * @FilePath: \blog\index.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -27,23 +27,23 @@
     <header class="header">
       <div class="header-left">
         <a href="#">
-          <h1 class="logo">
-            <img class="logo--icon" src="./public/logo.png"></img>
-            <span class="logo--title text-xl">代码纪事</span>
+          <h1 class="header-logo">
+            <img class="header-logo--icon" src="./public/logo.png"></img>
+            <span class="header-logo--title text-xl">代码纪事</span>
           </h1>
         </a>
       </div>
       <input class="header-search text-sm hidden-xs" placeholder="搜索文章..." />
       <div class="header-right">
         <ul class="header-list   hidden-xs hidden-sm hidden-md">
-          <li class="header-item text-base active"><a href="#">首页</a></li>
-          <li class="header-item text-base"><a href="#">文章</a></li>
-          <li class="header-item text-base"><a href="#">笔记</a></li>
-          <li class="header-item text-base"><a href="#">项目</a></li>
-          <li class="header-item text-base"><a href="#">课程</a></li>
-          <li class="header-item text-base"><a href="#">关于</a></li>
+          <li class="header-list--item  text-base active"><a href="#">首页</a></li>
+          <li class="header-list--item  text-base"><a href="#">文章</a></li>
+          <li class="header-list--item  text-base"><a href="#">笔记</a></li>
+          <li class="header-list--item  text-base"><a href="#">项目</a></li>
+          <li class="header-list--item  text-base"><a href="#">课程</a></li>
+          <li class="header-list--item  text-base"><a href="#">关于</a></li>
         </ul>
-        <img src="./public/img/list.svg" class="header-list_icon hidden-lg" alt="选项" >
+        <img src="./public/img/list.svg" class="header-list--icon hidden-lg" alt="选项" >
       </div>
 
     </header>
@@ -53,15 +53,15 @@
     <main class="main">
       <!-- 个人简介部分 start -->
       <div class="main-left visible-lg-block">
-        <div class="main-left--person">
-          <img class="person--avatar" src="./public/img/avatar.jpeg"></img>
-          <span class="person--nickname text-xl">暖阳</span>
+        <div class="person">
+          <img class="person-avatar" src="./public/img/avatar.jpeg"></img>
+          <span class="person-nickname text-xl">暖阳</span>
           <span class="person-motto text-xs">用代码温暖世界，用文字照亮前路</span>
           <div class="person-data">
-            <div class="person-data--article"><span class="text-xs person-data--article_icon">文章</span><span
-                class="person-data--article_num text-base">128k</span></div>
-            <div class="person-data--reader"><span class="text-xs person-data--reader_icon">读者</span><span
-                class="person-data--reader_num text-base">5.2k</span></div>
+            <div class="person-data--article"><span class="text-xs person-data--article-icon ">文章</span><span
+                class="person-data--article-num text-base">128k</span></div>
+            <div class="person-data--reader"><span class="text-xs person-data--reader-icon">读者</span><span
+                class="person-data--reader-num text-base">5.2k</span></div>
           </div>
           <span class="person-tag text-sm">
             前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
@@ -72,9 +72,9 @@
             前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
           </span>
           <div class="person-nav">
-            <div class="person-nav_gth person-nav_item"></div>
-            <div class="person-nav_bili  person-nav_item"></div>
-            <div class="person-nav_email  person-nav_item"></div>
+            <div class="person-nav--gth person-nav--item "></div>
+            <div class="person-nav--bili  person-nav--item "></div>
+            <div class="person-nav--email  person-nav--item "></div>
           </div>
         </div>
       </div>
@@ -94,12 +94,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -114,12 +114,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -134,12 +134,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -154,12 +154,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -174,12 +174,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -194,12 +194,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -214,12 +214,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -234,12 +234,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -254,12 +254,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
@@ -274,12 +274,12 @@
               深入探讨Reac18 带来的重大更新，包括并发渲染机制，自动批处理优化、已经如何在实际项目中应用这些新特性提升应用性能
             </div>
             <div class="article-about text-xs">
-              <span class="article-date"><span class="article-date_icon"></span><span>2025-12-20</span></span>
-              <div class="article-like"><span class="article-like_icon"></span>189k<span></span></div>
-              <div class="article-comment"><span class="article-comment_icon"></span><span>120k</span></div>
+              <span class="article-date"><span class="article-date--icon "></span><span>2025-12-20</span></span>
+              <div class="article-like"><span class="article-like--icon"></span>189k<span></span></div>
+              <div class="article-comment"><span class="article-comment--icon"></span><span>120k</span></div>
               <div class="article-tags">
-                <span class="article-tags_item">#react</span>
-                <span class="article-tags_item">javascript</span>
+                <span class="article-tags--item">#react</span>
+                <span class="article-tags--item">javascript</span>
               </div>
             </div>
           </div>
