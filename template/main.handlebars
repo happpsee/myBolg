@@ -1,7 +1,10 @@
 <!-- 主体部分 start -->
-<main class="main">
+<main class="main {{#if isLogin}}main_has-login{{/if}}">
   <!-- 个人简介部分 start -->
-  <div class="main-left visible-lg-block">
+  <div class="main-left visible-lg-block {{#if isLogin}}main-left_has-login{{/if}}">
+    <!-- -->
+
+    <!-- 个人介绍 -->
     {{#with person}}
     <div class="person">
       <img class="person-avatar" src="./public/img/avatar.jpeg"></img>
@@ -23,12 +26,14 @@
       </div>
     </div>
     {{/with}}
+
+    </div>
   </div>
   <!-- 个人简介部分 end -->
 
   <!-- 文章列表部分 start -->
   <div class="main-right">
-    <div class="main-right-list">
+    <div class="main-right-list animate__animated animate__bounceInRight">
       {{#each articles}}
       {{#with this}}
       <div class="main-right-article">

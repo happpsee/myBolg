@@ -1,10 +1,15 @@
 .main {
+  transition() 
   display: grid;
-  grid-template-columns: 2fr 8fr;
+  width: 1200px;
   justify-content: center;
   align-items: start;
   column-gap: 60px;
   margin-top: 40px;
+}
+.main.main_has-login {
+  width: 100%;
+  grid-template-columns: 2fr 8fr;
 }
 
 @media screen and (max-width: 1200px) {

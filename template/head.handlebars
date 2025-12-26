@@ -15,6 +15,12 @@
       {{#each navList}}
       <li class="header-list--item  text-base"><a href="#">{{this}}</a></li>
       {{/each}}
+      {{#unless isLogin}}
+      <li class="header-list--item  text-base header-list--log-reg-btn">
+         <a href="#" data-type="login">登录</a>
+         <a href="#" data-type="registry">注册</a>
+      </li>
+      {{/unless}}
     </ul>
     <img src="./public/img/list.svg" class="header-list--icon hidden-lg" alt="选项">
   </div>

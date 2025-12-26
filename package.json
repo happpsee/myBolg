@@ -14,6 +14,9 @@
   "license": "ISC",
   "packageManager": "pnpm@10.18.2",
   "dependencies": {
-    "handlebars": "^4.7.8"
+    "animate.css": "^4.1.1",
+    "handlebars": "^4.7.8",
+    "regular-javascript": "^1.0.7",
+    "validator.tool": "^1.0.3"
   }
 }

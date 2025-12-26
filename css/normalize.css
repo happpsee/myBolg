@@ -244,3 +244,15 @@ input {
 input:focus {
   outline: none;
 }
+
+button {
+  border: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+label {
+  margin-bottom: 0;
+}

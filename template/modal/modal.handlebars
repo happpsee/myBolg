@@ -1,0 +1,17 @@
+<div class="my-modal-wrap" id= "{{#if modalId}}{{{modalId}}}{{/if}}" hidden>
+    {{#if isCustom}}
+    {{{customContent}}}
+    {{else}}
+  <div class="my-modal-contain">
+    <div class="my-modal-head">
+    {{{headTemplate}}}
+        </div>
+    <div class="my-modal-main">
+    {{{mainTemplate}}}
+    </div>
+    <div class="my-modal-footer">
+    {{{ footerTemplate}}}
+    </div>
+    {{/if}}
+  </div>
+</div>
