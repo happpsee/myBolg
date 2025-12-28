@@ -74,12 +74,10 @@ const executeValidateList = (list, value) => {
   let result = true, msg = "";
   //当curr没有到达list尾的时候
   while (curr) {
-    console.log("测试", curr.rule, value);
     result = curr.rule.test(value);
     if (!result) {
       //如果验证错误了，那么也就没有必要必须判断了，打断循环
       msg = curr.msg;
-      console.log(msg, "MSSS");
       break;
     }
 
@@ -111,7 +109,6 @@ export const validateForm = (type, data) => {
       return acc;
     }
 
-    console.log(result, "Result");
     //验证失败,拿到dom元素和msg错误消息
     acc.push({
       ele,

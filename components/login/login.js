@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-23 16:37:55
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2025-12-26 18:47:26
+ * @LastEditTime: 2025-12-27 19:26:40
  * @FilePath: \徐晨冰_Node_20251221\第三十三天\myBolg\components\login\login.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,9 +10,9 @@
 //引入模态框
 
 import {Modal} from "../modal/index.js";
-import { kebabToCamel} from "../../utils/index.js";
+import { getFormJson, kebabToCamel} from "../../utils/index.js";
 import { formMap, msgMap } from "../../mocks/login.js";
-
+import {http} from "../../utils/http.js";
 import { validateForm} from "../../utils/validate.js";
 
 
@@ -51,6 +51,8 @@ class formUtils {
         .parent()
         .append(`<p class="form-error text-xss   animate__animated animate__backInLeft">${msg}</p>`);
     }
+
+    return false;
   }
 
   static drawFactory(type) {
@@ -58,8 +60,6 @@ class formUtils {
 
     const { open, close, kill, isLive, isShow } = Modal.modalFactory({ isCustom: true, customContent: templateStr });
     
-    console.log("搓手手试试");
-    console.log(isLive, "isLive函数");
     return {
       open,
       close,
@@ -70,13 +70,17 @@ class formUtils {
     }
   }
 
-  static request() {}
+  static request(type) {
+    const formId= kebabToCamel(type);
+    const data = getFormJson(type);
+    
+    return http.send(formId, data);
+  }
 };
 
 
 class Login {
   handleEvent() {
-    console.log("login handleEvent调用一次了");
     const $loginMethod = $(".login-method");
     const $close = $(".login-close");
     const $pwdLogin = $("#pwd-login");
@@ -106,17 +110,46 @@ class Login {
       this.close();
     });
 
-    $pwdLogin.on("submit", (e) => {
+    $pwdLogin.on("submit", async (e) => {
       e.preventDefault();
       //调用form类函数做验证
-      formUtils.validateFactory(e.target.id);
- 
+      const validateAns = formUtils.validateFactory(e.target.id);
+
+      if (!validateAns) {
+        return false;
+      }
+      //发起请求
+      try {
+        await formUtils.request("pwd-login");
+        this.deactivate();
+
+        $(".header-list--log-reg-btn").remove();
+        $(".main").addClass("main_has-login");
+        $(".main-left").addClass("main-left_has-login");
+      } catch(err) {
+        console.log("错误");
+      }
     });
 
-    $phoneLogin.on("submit", (e) => {
+    $phoneLogin.on("submit", async (e) => {
       e.preventDefault();
 
-      formUtils.validateFactory(e.target.id);
+      const validateAns = formUtils.validateFactory(e.target.id);
+      if (!validateAns) {
+        return false;
+      }
+      try {
+        await formUtils.request("phone-login");
+        this.deactivate();
+
+
+        $(".header-list--log-reg-btn").remove();
+        $(".main").addClass("main_has-login");
+        $(".main-left").addClass("main-left_has-login");
+
+      } catch(err) {
+        console.log("错误");
+      }
     });
 
     
@@ -131,7 +164,8 @@ class Login {
 
   draw() {
     const { open, close, kill, isShow, isLive} = formUtils.drawFactory("login");
-    
+
+
     Object.assign(this, {
       kill,
       open,
@@ -188,14 +222,30 @@ class Registry {
   }
 
   handleEvent() {
-    console.log("registry调用了一次");
     const $close = $(".registry-close");
     const $registry = $("#registry");
 
-    $registry.on("submit", (e) => {
+    $registry.on("submit", async (e) => {
       e.preventDefault();
 
-      formUtils.validateFactory(e.target.id);
+      const validateAns = formUtils.validateFactory(e.target.id);
+
+      if (!validateAns) {
+        return false;
+      }
+      try {
+        await formUtils.request("registry");
+        this.deactivate();
+
+        $(".header-list--log-reg-btn").remove();
+        $(".main").addClass("main_has-login");
+        $(".main-left").addClass("main-left_has-login");
+
+      } catch(err) {
+        console.log("错误");
+      }
+
+
     });
     $close.on("click", () => {
       this.close();

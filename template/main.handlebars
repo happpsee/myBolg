@@ -1,23 +1,50 @@
 <!-- 主体部分 start -->
-<main class="main {{#if isLogin}}main_has-login{{/if}}">
+<main class="main ">
   <!-- 个人简介部分 start -->
-  <div class="main-left visible-lg-block {{#if isLogin}}main-left_has-login{{/if}}">
+  <div class="main-left visible-lg-block ">
     <!-- -->
 
     <!-- 个人介绍 -->
-    {{#with person}}
     <div class="person">
       <img class="person-avatar" src="./public/img/avatar.jpeg"></img>
-      <span class="person-nickname text-xl">{{userNickname}}</span>
-      <span class="person-motto text-xs">{{motto}}</span>
+      <span class="person-nickname text-xl">
+        {{#if userNickname}}
+        {{userNickname}}
+        {{else}}
+          暖阳
+        {{/if}}</span>
+      <span class="person-motto text-xs">
+        {{#if motto}}
+        {{motto}}
+        {{else}} 
+        用代码温暖世界，用文字照亮前路
+        {{/if}}
+        </span>
       <div class="person-data">
         <div class="person-data--article"><span class="text-xs person-data--article-icon ">文章</span><span
-            class="person-data--article-num text-base">{{articlesNum}}</span></div>
+            class="person-data--article-num text-base">
+            {{#if articlesNum}}
+            <p>p标签</p>
+            {{articlesNum}}
+            {{else}}
+            128k
+            {{/if}}
+            </span></div>
         <div class="person-data--reader"><span class="text-xs person-data--reader-icon">读者</span><span
-            class="person-data--reader-num text-base">{{readerNum}}</span></div>
+            class="person-data--reader-num text-base">
+            {{#if readerNum}}
+            {{readerNum}}
+            {{else}}
+            5.2k
+            {{/if}}</span></div>
       </div>
       <span class="person-tag text-sm">
+        {{#if personalTag}}
         {{personalTag}}
+        {{else}}
+         前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+        {{/if}}
+       
       </span>
       <div class="person-nav">
         <div class="person-nav--gth person-nav--item "></div>
@@ -25,7 +52,6 @@
         <div class="person-nav--email  person-nav--item "></div>
       </div>
     </div>
-    {{/with}}
 
     </div>
   </div>
