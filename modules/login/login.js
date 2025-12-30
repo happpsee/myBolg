@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-23 16:37:55
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2025-12-27 19:26:40
+ * @LastEditTime: 2025-12-30 17:18:09
  * @FilePath: \徐晨冰_Node_20251221\第三十三天\myBolg\components\login\login.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,6 +14,8 @@ import { getFormJson, kebabToCamel} from "../../utils/index.js";
 import { formMap, msgMap } from "../../mocks/login.js";
 import {http} from "../../utils/http.js";
 import { validateForm} from "../../utils/validate.js";
+import {templateFactory} from "../templateControl.js";
+import { emitter } from "../../utils/eventEmitter.js";
 
 
 
@@ -56,7 +58,8 @@ class formUtils {
   }
 
   static drawFactory(type) {
-    const templateStr = Handlebars.templates[type]();
+    
+    const templateStr = templateFactory(type).getHTMLStr();
 
     const { open, close, kill, isLive, isShow } = Modal.modalFactory({ isCustom: true, customContent: templateStr });
     
@@ -80,6 +83,13 @@ class formUtils {
 
 
 class Login {
+  constructor() {
+    emitter.once("loginSuccess", () => {
+      this?.isLive && this?.isLive() && this.deactivate();
+    });
+  }
+
+
   handleEvent() {
     const $loginMethod = $(".login-method");
     const $close = $(".login-close");
@@ -121,12 +131,10 @@ class Login {
       //发起请求
       try {
         await formUtils.request("pwd-login");
-        this.deactivate();
-
-        $(".header-list--log-reg-btn").remove();
-        $(".main").addClass("main_has-login");
-        $(".main-left").addClass("main-left_has-login");
+        //派发登录成功事件
+        emitter.emit("loginSuccess");
       } catch(err) {
+        console.log(err);
         console.log("错误");
       }
     });
@@ -140,12 +148,7 @@ class Login {
       }
       try {
         await formUtils.request("phone-login");
-        this.deactivate();
-
-
-        $(".header-list--log-reg-btn").remove();
-        $(".main").addClass("main_has-login");
-        $(".main-left").addClass("main-left_has-login");
+        emitter.emit("loginSuccess");
 
       } catch(err) {
         console.log("错误");
@@ -208,6 +211,13 @@ class Login {
 }
 
 class Registry {
+
+  constructor() {
+    //登录成功后，销毁registry模态框
+    emitter.once("loginSuccess", () => {
+      this?.isLive && this?.isLive() && this.deactivate();
+    });
+  }
 
   draw() {
     const { open, close, kill, isShow, isLive} = formUtils.drawFactory("registry");
@@ -286,7 +296,9 @@ class Registry {
   }
 }
 
-class Form  {
+
+class Form {
+
   constructor() {
     this["login"] = new Login();
     this["registry"] = new Registry();
@@ -297,6 +309,17 @@ class Form  {
     this.anchor = document.querySelector(".header-list--log-reg-btn");
     //使用自定义内容
     this.handleEvent();
+
+
+    //当成功后，this.anchor也就没有必要了
+    emitter.once("loginSuccess", () => {
+      this.anchor.remove();
+      $(this.anchor).off();
+    });
+  }
+
+  open() {
+    this.currentStatus?.activate?.() ?? this.switchStatus("login");
   }
 
   switchStatus(status) {
@@ -317,53 +340,3 @@ class Form  {
 }
 export const form = new Form();
 
-
-
-
-  // getValidateData(type) {
-  //    let typeCamel = kebabToCamel(type);
-  //    const msg = msgMap[typeCamel];
-  //    return Object.entries(formMap[typeCamel]).reduce((acc, [key, value]) => {
-  //     acc.push({
-  //       name: key,
-  //       display: msg[key],
-  //       rules: value
-  //     });
-  //     return acc;
-  //    }, []);
-  // }
-  // validateFactory(type) {
-  //   const data = this.getValidateData(type);
-
-  //   $(`#${type}`)
-  //     .find(".form-error")
-  //     .remove();
-
-  //   console.log(data, "Data");
-  //   const validateAns = validateForm(type, data);
-    
-  //   if (validateAns.result) {
-  //     return true;
-  //   }
-  //   const {errors} = validateAns;
-  //   console.log(errors, "errors");
-  //   for (let i = 0, len = errors.length; i < len; i++) {
-  //     const {ele, msg} = errors[i];
-  //     ele
-  //     .parent()
-  //     .append(`<p class="form-error text-xss   animate__animated animate__backInLeft">${msg}</p>`);
-  //   }
-
-  //   //不通过
-  // }
-
-//  drawFactory(type)  {
-//   const templateStr = Handlebars.templates[type]();
-  
-//   const {modal, open, close} =  Modal.modalFactory({isCustom: true, customContent: templateStr});
-//     return {
-//       modal,
-//       open,
-//       close
-//     }
-//   }

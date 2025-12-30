@@ -11,9 +11,8 @@
   <input class="header-search text-sm hidden-xs" placeholder="搜索文章..." />
   <div class="header-right">
     <ul class="header-list   hidden-xs hidden-sm hidden-md">
-      <li class="header-list--item  text-base active"><a href="#">首页</a></li>
       {{#each navList}}
-      <li class="header-list--item  text-base"><a href="#">{{this}}</a></li>
+      <li class="header-list--item  text-base {{#if this.selector}}active {{/if}}"><a href="#" data-router="{{this.navigate}}">{{this.value}}</a></li>
       {{/each}}
       {{#unless isLogin}}
       <li class="header-list--item  text-base header-list--log-reg-btn">

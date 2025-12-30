@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-22 14:48:22
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2025-12-26 18:32:22
+ * @LastEditTime: 2025-12-29 20:20:53
  * @FilePath: \徐晨冰_Node_20251221\第三十三天\myBolg\components\modal\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -31,7 +31,7 @@
 
 // };
 import {getUniqueId} from "../../utils/index.js";
-
+import {templateFactory} from "../templateControl.js";
 export class Modal {
   #show = false;
   #live = false;
@@ -85,7 +85,7 @@ export class Modal {
 
   static modalMap = {
   "custom": ({ isCustom, customContent, modalId }) => {
-    const anchorTemplate = Handlebars.templates["modal"]({ isCustom, customContent, modalId});
+    const anchorTemplate = templateFactory("modal").getHTMLStr({ isCustom, customContent, modalId});
     return anchorTemplate;
   },
   "default": (options) => {
@@ -96,11 +96,10 @@ export class Modal {
     const closeText = options?.footer?.closeText ?? "取消";
     const confirmText = options?.footer?.confirmText ?? "确定";
 
-    const headTemplate = options?.customHeader ?? Handlebars.templates["modal-head"]({ title });
-    const mainTemplate = options?.customMain ?? Handlebars.templates["modal-main"]({ mainContent });
-    const footerTemplate = options?.customFooter ?? Handlebars.templates["modal-footer"]({ closeText, confirmText });
-    const anchorTemplate = options?.anchor ?? Handlebars.templates["modal"]({ headTemplate, mainTemplate, footerTemplate,  modalId:options.modalId});
-
+    const headTemplate = options?.customHeader ?? templateFactory("modal-head").getHTMLStr({ title });
+    const mainTemplate = options?.customMain ?? templateFactory("modal-main").getHTMLStr({ mainContent });
+    const footerTemplate = options?.customFooter ?? templateFactory("modal-footer").getHTMLStr({ closeText, confirmText });
+    const anchorTemplate = options?.anchor ?? templateFactory("modal").getHTMLStr({ headTemplate, mainTemplate, footerTemplate,  modalId:options.modalId});
 
     return anchorTemplate;
   }
@@ -128,28 +127,3 @@ export class Modal {
   }
 }
 
-
-
-
-// const modalMap = {
-//   "custom": ({ isCustom, customContent, modalId }) => {
-//     const anchorTemplate = Handlebars.templates["modal"]({ isCustom, customContent, modalId});
-//     return anchorTemplate;
-//   },
-//   "default": (options) => {
-
-//     //默认不是说完全使用默认模板，而是可以部分替换，部分使用自定义模板，意思是不完全替换
-//     const title = options?.head?.title ?? "标题";
-//     const mainContent = options?.body?.content ?? "模态框的主体内容写在这里";
-//     const closeText = options?.footer?.closeText ?? "取消";
-//     const confirmText = options?.footer?.confirmText ?? "确定";
-
-//     const headTemplate = options?.customHeader ?? Handlebars.templates["modal-head"]({ title });
-//     const mainTemplate = options?.customMain ?? Handlebars.templates["modal-main"]({ mainContent });
-//     const footerTemplate = options?.customFooter ?? Handlebars.templates["modal-footer"]({ closeText, confirmText });
-//     const anchorTemplate = options?.anchor ?? Handlebars.templates["modal"]({ headTemplate, mainTemplate, footerTemplate,  modalId:options.modalId});
-
-
-//     return anchorTemplate;
-//   }
-// };

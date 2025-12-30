@@ -1,0 +1,25 @@
+<div class="main-right-list animate__animated animate__bounceInRight">
+
+{{#each articles}}
+{{#with this}}
+<div class="main-right-article">
+  <div class="article-title text-xl">
+    {{articleTitle}}
+  </div>
+  <div class="article-des text-sm">
+    {{articleDes}}
+  </div>
+  <div class="article-about text-xs">
+    <span class="article-date"><span class="article-date--icon "></span><span>{{createdDate}}</span></span>
+    <div class="article-like"><span class="article-like--icon"></span>{{liekeNum}}<span></span></div>
+    <div class="article-comment"><span class="article-comment--icon"></span><span>{{commnetNum}}</span></div>
+    <div class="article-tags">
+      {{#each tags}}
+      <span class="article-tags--item">{{this}}</span>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/with}}
+{{/each}}
+</div>

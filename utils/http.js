@@ -43,7 +43,6 @@ const encryptInterceptor = (config) => {
 //token拦截
 const tokenInterceptor = config => {
   const currStatus = Http.customStatus.get(config.url);
-  console.log(currStatus, "currStauts", config.url, "url");
   if (!currStatus || !currStatus.withToken) {
     return config;
   }
@@ -57,7 +56,6 @@ const tokenInterceptor = config => {
 
 //密钥响应拦截
 const rsaKeyResInterceptor = response => {
-  console.log(response,  "Response");
   if (response.config.url === "/getPublicKey") {
     store.set(pubKeyName, response.data.data.publicKey);
   }

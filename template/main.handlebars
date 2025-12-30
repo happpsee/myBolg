@@ -5,53 +5,6 @@
     <!-- -->
 
     <!-- 个人介绍 -->
-    <div class="person">
-      <img class="person-avatar" src="./public/img/avatar.jpeg"></img>
-      <span class="person-nickname text-xl">
-        {{#if userNickname}}
-        {{userNickname}}
-        {{else}}
-          暖阳
-        {{/if}}</span>
-      <span class="person-motto text-xs">
-        {{#if motto}}
-        {{motto}}
-        {{else}} 
-        用代码温暖世界，用文字照亮前路
-        {{/if}}
-        </span>
-      <div class="person-data">
-        <div class="person-data--article"><span class="text-xs person-data--article-icon ">文章</span><span
-            class="person-data--article-num text-base">
-            {{#if articlesNum}}
-            <p>p标签</p>
-            {{articlesNum}}
-            {{else}}
-            128k
-            {{/if}}
-            </span></div>
-        <div class="person-data--reader"><span class="text-xs person-data--reader-icon">读者</span><span
-            class="person-data--reader-num text-base">
-            {{#if readerNum}}
-            {{readerNum}}
-            {{else}}
-            5.2k
-            {{/if}}</span></div>
-      </div>
-      <span class="person-tag text-sm">
-        {{#if personalTag}}
-        {{personalTag}}
-        {{else}}
-         前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
-        {{/if}}
-       
-      </span>
-      <div class="person-nav">
-        <div class="person-nav--gth person-nav--item "></div>
-        <div class="person-nav--bili  person-nav--item "></div>
-        <div class="person-nav--email  person-nav--item "></div>
-      </div>
-    </div>
 
     </div>
   </div>
@@ -59,30 +12,7 @@
 
   <!-- 文章列表部分 start -->
   <div class="main-right">
-    <div class="main-right-list animate__animated animate__bounceInRight">
-      {{#each articles}}
-      {{#with this}}
-      <div class="main-right-article">
-        <div class="article-title text-xl">
-          {{articleTitle}}
-        </div>
-        <div class="article-des text-sm">
-          {{articleDes}}
-        </div>
-        <div class="article-about text-xs">
-          <span class="article-date"><span class="article-date--icon "></span><span>{{createdDate}}</span></span>
-          <div class="article-like"><span class="article-like--icon"></span>{{liekeNum}}<span></span></div>
-          <div class="article-comment"><span class="article-comment--icon"></span><span>{{commnetNum}}</span></div>
-          <div class="article-tags">
-            {{#each tags}}
-            <span class="article-tags--item">{{this}}</span>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-      {{/with}}
-      {{/each}}
-    </div>
+
   </div>
   <!-- 文章列表部分 end -->
 </main>

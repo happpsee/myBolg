@@ -1,19 +1,8 @@
 .main {
   transition() 
-  display: grid;
-  width: 1200px;
+  display: flex;
   justify-content: center;
   align-items: start;
   column-gap: 60px;
   margin-top: 40px;
-}
-.main.main_has-login {
-  width: 100%;
-  grid-template-columns: 2fr 8fr;
-}
-
-@media screen and (max-width: 1200px) {
-  .main {
-    grid-template-columns: 1fr;
-  }
 }
