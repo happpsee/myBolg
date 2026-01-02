@@ -1,0 +1,28 @@
+<!-- 头部部分 start -->
+<header class="header">
+  <div class="header-left">
+    <a href="#">
+      <h1 class="header-logo">
+        <img class="header-logo--icon" src="logo.png"></img>
+        <span class="header-logo--title text-xl">代码纪事</span>
+      </h1>
+    </a>
+  </div>
+  <input class="header-search text-sm hidden-xs" placeholder="搜索文章..." />
+  <div class="header-right">
+    <ul class="header-list   hidden-xs hidden-sm hidden-md">
+      {{#each navList}}
+      <li class="header-list--item  text-base {{#if this.selector}}active {{/if}}"><a href="#" data-router="{{this.navigate}}">{{this.value}}</a></li>
+      {{/each}}
+      {{#unless isLogin}}
+      <li class="header-list--item  text-base header-list--log-reg-btn">
+         <a href="#" data-type="login">登录</a>
+         <a href="#" data-type="registry">注册</a>
+      </li>
+      {{/unless}}
+    </ul>
+    <img src="img/list.svg" class="header-list--icon hidden-lg" alt="选项">
+  </div>
+
+</header>
+<!-- 头部部分 end -->
