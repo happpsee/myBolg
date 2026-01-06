@@ -1,7 +1,7 @@
 {
   "name": "blog",
-  "type": "module",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.18.2",
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "css-loader": "^7.1.2",
     "handlebars-loader": "^1.7.3",
     "html-webpack-plugin": "^5.6.5",
@@ -30,6 +31,10 @@
     "@my-blog/validate": "workspace:*",
     "animate.css": "^4.1.1",
     "node-forge": "^1.3.3",
-    "store": "^2.0.12"
+    "routerjs": "^2.4.5",
+    "store": "^2.0.12",
+    "tailwind": "^4.0.0",
+    "typography": "^0.16.24",
+    "typography-theme-github": "^0.16.19"
   }
 }

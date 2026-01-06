@@ -2,23 +2,23 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-23 16:37:55
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-02 14:23:55
+ * @LastEditTime: 2026-01-05 17:57:00
  * @FilePath: \徐晨冰_Node_20251221\第三十三天\myBolg\components\login\login.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 //引入模态框
 
-import {Modal} from "../modal/index.js";
-import { getFormJson, kebabToCamel} from "../../utils/index.js";
-import { formMap, msgMap } from "../../mocks/login.js";
-import {http} from "../../utils/http.js";
+import {Modal} from "@/modules/modal/index.js";
+import { getFormJson, kebabToCamel} from "@/utils/index.js";
+import { formMap, msgMap } from "@/mocks/login.js";
+import {http} from "@/utils/http.js";
 import { validateForm} from "@my-blog/validate";
-import { emitter } from "../../utils/eventEmitter.js";
+import { emitter } from "@/utils/eventEmitter.js";
 
 
-import loginTemplate from "../../views/logReg/login.handlebars";
-import registryTemplate from "../../views/logReg/registry.handlebars";
+import loginTemplate from "@/views/logReg/login.handlebars";
+import registryTemplate from "@/views/logReg/registry.handlebars";
 
 
 //表单工具类
@@ -306,45 +306,22 @@ class Registry {
 }
 
 
-class Form {
 
+
+class Form {
   constructor() {
     this["login"] = new Login();
     this["registry"] = new Registry();
   }
-
-
-  start(){
-    this.anchor = document.querySelector(".header-list--log-reg-btn");
-    //使用自定义内容
-    this.handleEvent();
-
-
-    //当成功后，this.anchor也就没有必要了
-    emitter.once("loginSuccess", () => {
-      this.anchor.remove();
-      $(this.anchor).off();
-    });
-  }
-
-  open() {
-    this.currentStatus?.activate?.() ?? this.switchStatus("login");
-  }
-
   switchStatus(status) {
+    console.log("Sss", this[status]);
     //如果没有当前这个状态
     if (!this[status]) {
       return false;
     }
+
     this.currentStatus = this[status];
     this.currentStatus.activate();
-  }
-
-  handleEvent() {
-    this.anchor.addEventListener("click", (e) => {
-      const type = e.target.dataset?.type?.trim();
-      this[type] && this.switchStatus(type);
-    });
   }
 }
 export const form = new Form();

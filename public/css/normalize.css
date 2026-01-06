@@ -268,3 +268,6 @@ a:focus {
 label {
   margin-bottom: 0;
 }
+input[type="text"] {
+  -webkit-appearance: textfield;
+}
