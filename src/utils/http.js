@@ -1,16 +1,17 @@
 import { encrypt } from "./index.js";
-
 import store from "store";
-
 import { Http } from "@my-blog/http";
+import { storeKey } from "../constant/index.js";
+import Message from "./message.js";
 
-const baseURL = "http://127.0.0.1:8080";
+
+const baseURL = storeKey.baseApiURL;
 const timeout = 5000;
 const pubKeyName = "ua_publicKey";
 const tokenName = "ua_jot";
 
 const requestMap = {
-    "register": {
+    "registry": {
       url: "/register",
       method: "POST",
       rsaKey: ["password"]
@@ -29,6 +30,15 @@ const requestMap = {
       withToken: false,
       url: "/getPublicKey",
       method: "GET"
+    },
+    "articles": {
+      url: "/api/articles",
+      method: "GET"
+    },
+    "publishArticle": {
+      url: "/api/articles",
+      method: "POST",
+      withToken: true
     }
 };
 
@@ -72,6 +82,7 @@ const tokenInterceptor = config => {
 //密钥响应拦截
 const rsaKeyResInterceptor = response => {
   if (response.config.url === "/getPublicKey") {
+    console.log(response.data);
     store.set(pubKeyName, response.data.data.publicKey);
   }
   return response;
@@ -79,7 +90,8 @@ const rsaKeyResInterceptor = response => {
 
 //token响应拦截
 const tokenResInterceptor = (response) => {
-  if (response.config.url !== "/login" && response.config.url !== "/registry") {
+  console.log(response, "response");
+  if (response.config.url !== "/login" && response.config.url !== "/register") {
     return response;
   }
   let token = response.data.data.token;
@@ -88,14 +100,24 @@ const tokenResInterceptor = (response) => {
   return response;
 };
 
+const responseInterceptor = (response) => {
+  return response.data;
+};
+
+const message = new Message();
+const hanldeErr = (err) => {
+    message.danger(err.data.message);
+};
+
 
 const commonReqInterceptor = [encryptInterceptor, tokenInterceptor];
-const commonResInterceptor = [rsaKeyResInterceptor, tokenResInterceptor];
+const commonResInterceptor = [rsaKeyResInterceptor, tokenResInterceptor, responseInterceptor];
 
 export const http = new Http({
   requestMap,
   commonReqInterceptor,
   commonResInterceptor,
+  hanldeErr,
   options: {
     baseURL,
     timeout,
