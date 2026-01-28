@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-24 20:28:15
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-26 17:51:12
+ * @LastEditTime: 2026-01-28 16:13:04
  * @FilePath: \徐晨冰_Node_20260124\第五十二天\myBolg\packages\http\src\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -56,7 +56,7 @@ export class Http {
   }
 
   //type 类型, data 数据, 返回一个Promise
-  send(type, data) {
+  send(type, ...args) {
     if (!this.requestMap[type]) {
       return false;
     }
@@ -64,7 +64,7 @@ export class Http {
     const {method, url} = this.requestMap[type];
     Http.customStatus.set(url, Object.assign({}, this.requestMap[type]));
     //使用axios, 返回一个promise
-    return this.request[method.toLowerCase()](url, data);
+    return this.request[method.toLowerCase()](url, ...args);
   }
 
   addReqInterceptor(...args) {

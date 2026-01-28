@@ -39,6 +39,11 @@ const requestMap = {
       url: "/api/articles",
       method: "POST",
       withToken: true
+    },
+    "upload": {
+      url: "/upload/article",
+      method: "POST",
+      withToken: true
     }
 };
 
