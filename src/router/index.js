@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-03 11:29:17
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-26 16:57:13
+ * @LastEditTime: 2026-01-28 14:24:53
  * @FilePath: \徐晨冰_Node_20250103\第四十天\myBolg\src\router\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,8 +17,10 @@ import articleRender from "@/renders/articles.js";
 import { navListActions } from "../controlls/navListAction.js";
 import { emitter } from "../utils/eventEmitter.js";
 import editorRender from "../renders/editor.js";
+import articleDetailRender from "../renders/articleDetail.js";
 
 export const router = createRouter();
+
 
 
 //确保在路由前执行这个
@@ -45,12 +47,16 @@ const layoutMiddleware = () => {
 router.get("/", combinate(layoutMiddleware, () => {
   //渲染文章
   new articleRender();
-  
-
 }));
 
 router.get("/write", combinate(layoutMiddleware, () => {
   new editorRender();
+}));
+
+
+router.get("/article/:id", combinate(layoutMiddleware, (req, context) => {
+  new articleDetailRender(req.params.id);
+
 }));
 
 
