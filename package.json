@@ -30,6 +30,7 @@
     "@my-blog/validate": "workspace:*",
     "@wangeditor/editor": "^5.1.23",
     "animate.css": "^4.1.1",
+    "dotenv": "^17.2.3",
     "iscroll": "^5.2.0",
     "node-forge": "^1.3.3",
     "routerjs": "^2.4.5",

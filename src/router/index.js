@@ -2,70 +2,124 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-03 11:29:17
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-28 14:24:53
+ * @LastEditTime: 2026-01-29 23:15:35
  * @FilePath: \徐晨冰_Node_20250103\第四十天\myBolg\src\router\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import { createRouter } from "routerjs";
-import { getLoginStatus, } from "@/stores/login.js";
-import { getLayoutState, renderBaseLayout } from "@/stores/baseLayout.js";
-import headMocks from "@/mocks/head.js";
-import { combinate } from "@/utils/index.js";
-import { FormActions } from "@/controlls/formAction.js";
-import { renderPerson } from "@/renders/personRender.js";
-import articleRender from "@/renders/articles.js";
-import { navListActions } from "../controlls/navListAction.js";
-import { emitter } from "../utils/eventEmitter.js";
-import editorRender from "../renders/editor.js";
-import articleDetailRender from "../renders/articleDetail.js";
-
-export const router = createRouter();
+import { getMatchKey } from "@/utils/index.js";
+import { SkeletonModel, PersonModel, ArticleModel, EditorModel, ArticleDetailModel } from "@/models/index.js";
 
 
-
-//确保在路由前执行这个
-const layoutMiddleware = () => {
-  if (getLayoutState().baseLayoutRendered) {
-    return false;
+const routerMap = {
+  "/": {
+    living: [PersonModel, ArticleModel],
+  },
+  "/write": {
+    living: [PersonModel, EditorModel],
+  },
+  "/article/:id": {
+    living: [PersonModel, ArticleDetailModel],
   }
-  const headData = {
-    isLogin: getLoginStatus().isLogin,
-    navList: headMocks.navList
-  };
+}
 
-  renderBaseLayout({
-    headData
-  });
-
-  const {isLogin} = getLoginStatus();
-  isLogin ? renderPerson() : emitter.once("loginSuccess", renderPerson());
-  isLogin || FormActions();
-
+const getRouterMapPath = (path) => {
+  console.log(routerMap, "routerMap");
+  let matchKey = getMatchKey(path, routerMap);
+  return routerMap[matchKey];
 };
 
 
-router.get("/", combinate(layoutMiddleware, () => {
-  //渲染文章
-  new articleRender();
-}));
-
-router.get("/write", combinate(layoutMiddleware, () => {
-  new editorRender();
-}));
 
 
-router.get("/article/:id", combinate(layoutMiddleware, (req, context) => {
-  new articleDetailRender(req.params.id);
+class Router {
+  constructor({
+    path,
+    routerjs
+  }) {
+    new SkeletonModel().init({path: getMatchKey(location.pathname, routerMap)});
+    this.curPath = path;
+    this.routerjs = routerjs;
+    this.livings = [];
+  }
 
-}));
+  unMounted(req, context) {
+    let path = req.path;
+    let oldPath = this.curPath;
+    
+    if (oldPath === path) {
+      return false;
+    }
+
+     
+    if (!getRouterMapPath(oldPath)) {
+      return false;
+    }
+
+    let { living: old } = getRouterMapPath(oldPath);
+    let { living: news } = getRouterMapPath(path);
+
+    for (const item of old) {
+      if (news.includes(item)) {
+        continue;
+      }
+      let idx = this.livings.findIndex((el) => {
+        return el instanceof item;
+      });
+      this.livings[idx].destroy && this.livings[idx].destroy();
+      this.livings.splice(idx, 1);
+    }
+  }
+  
+  mounted(req, context) {
+    let path = req.path;
+
+    if (path === this.curPath) {
+      return false;
+    }
+
+    let {living: news} = getRouterMapPath(path);;
+
+    let render = Promise.resolve(); 
+    
+    for (const item of news) {
+      render.then(async () => {
+        let el = new item();
+        this.livings.push(el);
+        await el.init(req, context); 
+      });
+    }
+  }
+
+  setCurPath(req) {
+    this.curPath = req.path;
+  }
+
+  navigate(...args) {
+    this.unMounted(...args);
+    this.mounted(...args);
+    this.setCurPath(...args);
+  }
+}
 
 
-router.always((context) => {
-  navListActions(context.path);
+
+export const routerjs = createRouter();
+
+const router = new Router({
+  routerjs
 });
 
+
+
 export const routerStart = () => {
-  router.run();
+  for (const key of Object.keys(routerMap)) {
+    routerjs.get(key, (...args) => {
+      router.navigate(...args);
+    });
+  }
+
+  routerjs.run();
 };
 
 
