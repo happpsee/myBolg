@@ -2,14 +2,14 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2025-12-23 16:37:55
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-29 23:34:02
+ * @LastEditTime: 2026-01-30 12:58:20
  * @FilePath: \徐晨冰_Node_20251221\第三十三天\myBolg\components\login\login.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 //引入模态框
 
-import {Modal} from "./modal.js";
+import {Modal} from "../modal/modal.js";
 import { validateForm} from "@my-blog/validate";
 import { emitter, http, getFormJson, kebabToCamel } from "@/utils/index.js";
 import { getTemplate } from "@/views/index.js";

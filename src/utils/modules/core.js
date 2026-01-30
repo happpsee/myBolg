@@ -106,3 +106,9 @@ export const getMatchKey = (path, routerMap) => {
 
   return matchKey;
 }
+
+export const ListenToPromise = (ele, type) => {
+  return new Promise((fulfilled)=> {
+    e.addEventListener(type, fulfilled);
+  });
+};

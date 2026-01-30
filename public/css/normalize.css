@@ -271,3 +271,7 @@ label {
 input[type="text"] {
   -webkit-appearance: textfield;
 }
+
+[contenteditable]:focus {
+  outline: none;
+}

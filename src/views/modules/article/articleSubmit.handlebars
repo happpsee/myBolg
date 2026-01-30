@@ -1,0 +1,45 @@
+<div class="article-submit-wrap">
+  <div class="article-submit-bgc">
+      <i class="article-sub-close js-article-sub-close"></i>
+    <div class="article-submit-main">
+      <div class="article-submit-group js-article-submit-group">
+          <label class="article-sub-cover--label">文章封面</label>
+        <div class="input-file-wrap js-input-file-wrap">
+          <input type="file" class="input-file js-article-sub-file">
+          <div class="article-file-bgc"></div>
+          <div class="input-file-mask js-input-file-mask">
+            <div class="input-file-mask--img"></div>
+            <span class="input-file-mask--span">上传封面</span>
+            {{!-- <img src="/img/upload.svg" alt="上传图片" class="input-file-mask--img"> --}}
+          </div>
+          <div class="input-file-mask--hover">
+            <div class="input-file-mask--img"></div>
+            <span class="input-file-mask--span">上传封面</span>
+            {{!-- <img src="/img/upload.svg" alt="上传图片" class="input-file-mask--img"> --}}
+          </div>
+          <img src="" hidden class="js-article-select-img article-select-img">
+        </div>
+      </div>
+      <div class="article-submit-group js-article-submit-group">
+        <label class="article-sub-column--label text-xs">收录至专栏</label>
+        <div class="article-sub-column js-article-sub-column">
+        {{#each tags}}
+        {{#with this}}
+        <span class="article-sub-coumn--item text-xs js-article-sub-column-item" data-id="{{_id}}">
+          {{name}}
+        </span> 
+        {{/with}}
+        {{/each}}      
+        </div>
+      </div>
+      <div class="article-submit-group js-article-submit-group">
+        <div contenteditable class="article-sub-abstract js-article-sub-abstract" placeholder="请输入文章摘要"></div>
+      </div>
+    </div>
+
+    <div class="article-submit-btns">
+      <button class="article-submit-cancel text-xl js-article-sub-close">取消</button>
+      <button class="article-submit-confirm -text-xl js-article-sub-confirm">确认</button>
+    </div>
+  </div>
+</div>

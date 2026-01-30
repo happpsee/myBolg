@@ -1,7 +1,7 @@
 import { encrypt } from "../index.js";
 import store from "store";
 import { Http } from "@my-blog/http";
-import Message from "./message.js";
+import { Message } from "./message.js";
 
 
 const baseURL = BASE_API_URL;
@@ -43,6 +43,10 @@ const requestMap = {
       url: "/upload/article",
       method: "POST",
       withToken: true
+    },
+    "column": {
+      url: "/api/columns",
+      method: "GET"
     }
 };
 
@@ -105,6 +109,7 @@ const tokenResInterceptor = (response) => {
 };
 
 const responseInterceptor = (response) => {
+  console.log(response, "response");
   return response.data;
 };
 

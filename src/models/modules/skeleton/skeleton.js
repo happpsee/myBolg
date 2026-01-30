@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-29 15:02:08
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-01-29 23:35:00
+ * @LastEditTime: 2026-01-30 13:00:39
  * @FilePath: \徐晨冰_Node_20260129\myBolg\src\modules\skeleton.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,7 +10,7 @@ import { headMocks } from "@/mocks/index.js"
 import { getTemplate } from "@/views/index.js";
 import store from "store";
 import { routerjs } from "@/router/index.js";
-import {form} from "./login.js";
+import {form} from "../logReg/login.js";
 
 const headTemplate = getTemplate("head");
 const mainTemplate = getTemplate("main");
