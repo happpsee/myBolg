@@ -1,0 +1,49 @@
+<div class="{{personClass.person}} animate__animated animate__bounceInLeft">
+  <div class="{{personClass.personAvatar}}">
+  <img  src="/img/avatar.jpeg"></img>
+  </div>
+
+  <span class="{{personClass.personNickname}} text-xl">
+    {{#if userNickname}}
+    {{userNickname}}
+    {{else}}
+    暖阳
+    {{/if}}</span>
+  <span class="{{personClass.personMotto}} text-xs">
+    {{#if motto}}
+    {{motto}}
+    {{else}}
+    用代码温暖世界，用文字照亮前路
+    {{/if}}
+  </span>
+  <div class="{{personClass.personData}}">
+    <div class="{{personClass.personDataArticle}}"><span class="text-xs {{personClass.personDataArticleIcon}}">文章</span><span
+        class="{{personClass.personDataArticleNum}} text-base">
+        {{#if articlesNum}}
+        {{articlesNum}}
+        {{else}}
+        128k
+        {{/if}}
+      </span></div>
+    <div class="{{personClass.personDataReader}}"><span class="text-xs {{personClass.personDataReaderIcon}}">读者</span><span
+        class="{{personClass.personDataReaderNum}} text-base">
+        {{#if readerNum}}
+        {{readerNum}}
+        {{else}}
+        5.2k
+        {{/if}}</span></div>
+  </div>
+  <span class="{{personClass.personTag}} text-sm">
+    {{#if personalTag}}
+    {{personalTag}}
+    {{else}}
+    前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践前端开发工程师，热爱技术分享与开源贡献。专注于React、TypeScript和现代前端工程化实践
+    {{/if}}
+
+  </span>
+  <div class="{{personClass.personNav}}">
+    <div class="{{personClass.personNavGth}} {{personClass.personNavItem}}"></div>
+    <div class="{{personClass.personNavBili}}  {{personClass.personNavItem}} "></div>
+    <div class="{{personClass.personNavEmail}}  {{personClass.personNavItem}}"></div>
+  </div>
+</div>

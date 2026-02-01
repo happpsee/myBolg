@@ -13,7 +13,7 @@ export const headMocks = {
   "navList": [
     {value: "首页", navigate: "/"},
     {value: "写文章", navigate: "/write"},
-    {value: "笔记", navigate: "", },
+    {value: "分类", navigate: "/columns", },
     {value: "项目", navigate: "", },
     {value: "课程", navigate: "", },
     {value: "关于", navigate: "", }

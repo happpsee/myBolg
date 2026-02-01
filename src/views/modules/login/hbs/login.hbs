@@ -1,0 +1,66 @@
+
+<div class="{{class.loginContainer}}  animate__fadeIn animate__animated">
+  <div class="{{class.loginHead}}">
+  <h3 class="{{class.loginTitle}} text-xl">登录</h3>
+  <i class="{{class.loginClose}} js-close"></i>
+  </div>
+  <div class="{{class.loginMain}}">
+    <div class="{{class.loginMainLeft}}"></div>
+    <div class="{{class.loginMainRight}}">
+      <div class="{{class.loginMethod}} js-login-method">
+        <span class="{{class.active}}">密码登录</span>
+        <span>短信登录</span>
+      </div>
+      <div class="{{class.filpCard}} js-filp-card">
+        <div class="{{class.filpCardInner}} {{class.filpCardItem}} {{class.active}} js-filp-card-item">
+         <form action="javasccript:;" id="pwd-login" class=" js-pwd-login {{class.loginForm}}">
+                  
+        <div class="{{class.formItems}}">
+        <div class="{{class.formGroup}}">
+          <label for="username" class="{{class.controlLabel}} {{class.formAccountLabel}} text-xl"></label>
+          <input type="text" name="username" id="account" class="{{class.controlInput}} {{class.formAccount}} text-xs" placeholder="请输入账号" autocomplete="off">
+        </div>
+        </div>
+
+        <div class="{{class.formItems}}">
+        <div class="{{class.formGroup}}">
+          <label for="password" class="{{class.controlLabel}} {{class.formPwdLabel}} text-xl"></label>
+          <input type="text" name="password" class="{{class.controlInput}} {{class.formPwd}} text-xs" placeholder="请输入密码" autocomplete="off">
+        </div>    
+        </div>
+        
+        <button class="{{class.submitBtn}}">登录</button>
+         </form>
+        </div>
+        <div class="{{class.filpCardBack}} {{class.filpCardItem}} js-filp-card-item">
+      <form action="javasccript:;"  id="phone-login" class="js-phone-login {{class.loginFormPhone}} ">
+        <div class="{{class.formItems}}">
+        <div class="{{class.formGroup}}">
+          <label for="phone" class="{{class.controlLabel}} {{class.formPhoneLabel}} text-xl"></label>
+          <input type="text" name="phone" id="phone" class="{{class.controlInput}} {{class.formPhone}} text-xs" placeholder="请输入手机号" autocomplete="off">
+        </div>
+        </div>
+        <div class="{{class.formItems}}">
+        <div class="{{class.formGroup}}">
+          <label for="password" class="{{class.controlLabel}} {{class.formPwdLabel}} text-xl"></label>
+          <input type="text" name="password" class="{{class.controlInput}} {{formPwd}} text-xs" placeholder="请输入密码" autocomplete="off">
+        </div>
+        </div>
+        <div class="{{class.formItems}}">
+        <div class="{{class.formGroup}}">
+          <label for="vertificate" class="{{class.controlLabel}} {{class.formVertificateLabel}} text-sm"></label>
+          <input type="text" name="vertificate" class="{{class.controlInput}} {{class.formVertificate}} text-xs" placeholder="请输入验证码" autocomplete="off">
+        </div>
+        </div>
+        <button class="{{class.submitBtn}}">登录</button>
+      </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="{{class.loginFooter}} text-xss">
+    <p class="{{class.loginFooterHit}}">未注册过的<spn class="{{class.loginFooterHitStrong}}">代码既事</spn>账号，我们将帮你自动注册账号</p>
+  </div>
+</div>
+
+

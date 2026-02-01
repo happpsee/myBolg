@@ -1,0 +1,74 @@
+@import "@/styl/variable.styl";
+
+.column-wrap {
+  box-shadow-normal()
+  width: calc(100% - 25px);
+  height: 650px;
+  padding: 8px;
+  background-color: bgc_white;
+  border-radius:border_radius;
+  overflow: hidden;
+}
+
+
+.add-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+  width: 180px;
+  height: 150px;
+  color: base_bgc;
+  background-color: column-bg-reverse-color;
+  cursor: pointer;
+}
+.add-column-icon {
+  width: 50px;
+  height: 50px;
+  background: url("/img/column-icon.svg") no-repeat;
+  background-size: 50px;
+}
+
+  
+
+.column-item-row--small {
+  width: 180px;
+}
+.column-item-row--base {
+  width: 300px;
+}
+.column-item-row--middle {
+  width: 360px;
+}
+.column-item-row--tall {
+  width: 420px;
+}
+.column-item-col--small {
+  height: 100px;
+}
+.column-item-col--base {
+  height: 150px;
+}
+.column-item-col--middle {
+  height: 200px;
+}
+.column-item-col--tall {
+  height: 250px;
+}
+
+.column-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: base_bgc;
+  padding: 0 10px;
+  box-shadow 0 0 4px 1px rgba(122,122,122,.3) inset
+  background-color: column-bg-reverse-color;
+  cursor: pointer;
+  &:nth-of-type(2n) {
+    color: text_color;
+    background-color: column-bg-color;
+  }
+}

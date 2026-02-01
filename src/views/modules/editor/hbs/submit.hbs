@@ -1,0 +1,43 @@
+<div class="{{class.articleSubmitWrap}}">
+  <div class="{{class.articleSubmitBgc}}">
+      <i class="{{class.articleSubClose}} js-article-sub-close"></i>
+    <div class="{{class.articleSubmitMain}}">
+      <div class="{{class.articleSubmitGroup}} js-article-submit-group">
+          <label class="{{class.articleSubCoverLabel}}">文章封面</label>
+        <div class="{{class.inputFileWrap}} js-input-file-wrap">
+          <input type="file" class="{{class.inputFile}} js-article-sub-file">
+          <div class="{{class.articleFileBgc}}"></div>
+          <div class="{{class.inputFileMask}} js-input-file-mask">
+            <div class="{{class.inputFileMaskImg}}"></div>
+            <span class="{{class.inputFileMaskSpan}}">上传封面</span>
+          </div>
+          <div class="{{class.inputFileMaskHover}}">
+            <div class="{{class.inputFileMaskImg}}"></div>
+            <span class="{{class.inputFileMaskSpan}}">上传封面</span>
+          </div>
+          <img src="" hidden class="js-article-select-img {{class.articleSelectImg}}">
+        </div>
+      </div>
+      <div class="{{class.articleSubmitGroup}} js-article-submit-group">
+        <label class="{{class.articleSubColumnLabel}} text-xs">收录至专栏</label>
+        <div class="{{class.articleSubColumn}} js-article-sub-column">
+        {{#each tags}}
+        {{#with this}}
+        <span class="{{../class.articleSubCoumnItem}} text-xs js-article-sub-column-item" data-id="{{_id}}">
+          {{name}}
+        </span> 
+        {{/with}}
+        {{/each}}      
+        </div>
+      </div>
+      <div class="{{class.articleSubmitGroup}} js-article-submit-group">
+        <div contenteditable class="{{class.articleSubAbstract}} js-article-sub-abstract" placeholder="请输入文章摘要"></div>
+      </div>
+    </div>
+
+    <div class="{{class.articleSubmitBtns}}">
+      <button class="{{class.articleSubmitCancel}} text-xl js-article-sub-close">取消</button>
+      <button class="{{class.articleSubmitConfirm}} -text-xl js-article-sub-confirm">确认</button>
+    </div>
+  </div>
+</div>
