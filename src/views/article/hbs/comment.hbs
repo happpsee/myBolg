@@ -1,0 +1,20 @@
+<div class="{{class.commentListTitle}} text-2xl">评论列表</div>
+<div class="{{class.commentList}}">
+{{#each data}}
+{{#with this}}
+  <div class="{{../class.commentItem}}">
+    <div class="{{../class.left}}">
+      <img class="{{../class.avatar}}" src="{{uid.avatar}}"></img>
+    </div>
+    <div class="{{../class.right}}">
+    <div class="{{../class.nickname}}">{{uid.nickname}}</div>
+      <div class="{{../class.content}} text-base">{{content}}</div>
+      <div class="{{../class.about}} text-xs">
+        <div class="{{../class.date}} {{../class.aboutItem}}"><div class="{{../class.dateIcon}}"></div> <span class="{{../class.dateText}}">{{date}}</span></div>
+        <div class="{{../class.likeNum}} {{../class.aboutItem}}"><div class="{{../class.likeIcon}}"></div> <span class="{{../class.likeNumText}}">{{likeNums}}</span></div>
+      </div>
+    </div>
+  </div>
+{{/with}}
+{{/each}}
+</div>

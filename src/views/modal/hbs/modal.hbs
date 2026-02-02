@@ -1,8 +1,10 @@
 <div class="{{class.myModalWrap}}" id= "{{#if modalId}}{{{modalId}}}{{/if}}" hidden>
+  
     {{#if isCustom}}
     {{{customContent}}}
     {{else}}
-  <div class="{{class.myModalContain}}">
+     <div class="{{class.myModalContain}}">
+     <div class="{{class.modalBgc}}">
     <div class="{{class.myModalHead}}">
     {{{headTemplate}}}
         </div>
@@ -12,6 +14,8 @@
     <div class="{{class.myModalFooter}}">
     {{{ footerTemplate}}}
     </div>
+     </div>
+    </div>
     {{/if}}
-  </div>
+
 </div>

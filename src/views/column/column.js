@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-31 15:02:37
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-02-01 18:53:43
+ * @LastEditTime: 2026-02-02 15:53:27
  * @FilePath: \徐晨冰_Node_20260131\第五十五天\myBolg\src\models\modules\column\column.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,7 +11,12 @@ import { formatTime } from "@/utils/index.js";
 import Packery from "packery";
 import Draggabilily from "draggabilly";
 import * as columnClass from "./styl/column.styl";
+import * as addColumnClass from "./styl/addColumn.styl";
 import columnTemplate from "./hbs/column.hbs";
+import addColumnTemplate from "./hbs/addColumn.hbs";
+import { Modal } from "../modal/modal.js";
+import { Message } from "../message/message.js";
+
 
 
 
@@ -21,6 +26,7 @@ class Column {
 
   async init() {
     await this.render();
+    this.eventAgency();
   }
 
   async render() {
@@ -42,7 +48,6 @@ class Column {
       let segStatus = Math.floor(index / listLen);
       let rowClass = columnClass[`columnItemRow${segMap[segStatus]}`];
       let colClass = columnClass[`columnItemCol${segMap[segStatus]}`];
-      console.log(rowClass, colClass, "rowClass-colClass", segStatus);
       date = formatTime(date);
       return {name, date, aidLen: len, rowClass, colClass};
     }); 
@@ -61,17 +66,56 @@ class Column {
       const draggie = new Draggabilily(itemElem);
       $packery.bindDraggabillyEvents(draggie);
     });
-
-    // console.log($packery, "$packery");
-
-    // $packery.find(".js-column-item").each((_, item) => {
-    //   const draggie = new Draggabilily(item);
-
-    //   //bindDraggabillyEvents
-    //   $packery.packery("bindDraggabillyEvents", draggie);
-    // });
      
   }
+
+  eventAgency() {
+    $(".js-add-column").on("click", () => {
+      if (!this.open) {
+        const { close, open, kill } = Modal.modalFactory({
+          head: {
+            title: "新增分类",
+          },
+          footer: {
+            closeText: "取消添加",
+            confirmText: "确定添加分类"
+          },
+          body: {
+            content: addColumnTemplate({class:addColumnClass})
+          },
+          confirm: async () => {
+            let text = $(".js-add-column-input").val();
+            if (text.length < 2) {
+              (new Message()).danger("分类字数不得少于2位");
+            }
+            const ans = await http.send("addColumn", {
+              name: text
+            });
+            (new Message()).success("添加分栏成功");
+            this.reload();
+            console.log("分栏的结果为", ans);
+          }
+        });
+        this.open = open;
+        this.close = close;
+        this.kill = kill;
+      }
+      this.open();
+       
+    });
+  }
+
+  destroy() {
+     $(".js-add-column").off();
+  }
+
+  async reload() {
+    this.kill();
+    this.destroy();
+
+    await this.init();
+  }
+
 }
 
 

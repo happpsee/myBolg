@@ -1,0 +1,23 @@
+<div class="{{class.articleDetailScroller}} app-article-detail-scroll">
+  <div class="{{class.articleDetail}}">
+    <div class="{{class.articleHead}} text-3xl">
+      <span class="{{class.articleDetailTitle}}">{{articleTitle}}</span>
+     <div class="{{class.articleAbout}}">
+      <span class="{{class.likeNun}} {{class.aboutItem}} text-sm" >点赞量<span class="text-base {{class.aboutItemText}}">{{likeNums}}</span></span>
+      <span class="{{class.commentNum}} {{class.aboutItem}} text-sm">评论数<span class="text-base {{class.aboutItemText}}">{{commentNums}}</span></span>
+      <span class="{{class.clickNum}} {{class.aboutItem}} text-sm">文章点击量<span class="text-base {{class.aboutItemText}}">{{clickNums}}</span></span>
+     </div>
+    </div>
+    <div class="{{class.articleDetailBody}}">
+      {{{articleContent}}}
+    </div>
+
+    <div class="{{class.comment}}">
+    <div class="{{class.submitComment}}">
+      <textarea class="{{class.commentInput}}" spellcheck="false" data-input="comment" placeholder="点击输入发布评论"></textarea>
+      <button class="{{class.submitBtn}}" data-btn="comment-submit">提交</button>
+    </div>
+     <div class="{{class.commentList}} js-comment-list"></div>
+     </div>
+  </div>
+</div>

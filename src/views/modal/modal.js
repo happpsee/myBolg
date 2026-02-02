@@ -2,7 +2,7 @@
  * @Author: '超绝大帅哥' '3425395584@qq.com'
  * @Date: 2026-01-01 20:24:09
  * @LastEditors: '超绝大帅哥' '3425395584@qq.com'
- * @LastEditTime: 2026-02-01 19:48:34
+ * @LastEditTime: 2026-02-02 15:36:53
  * @FilePath: \徐晨冰_Node_20250102\第三十九天\myBolg\src\modules\modal\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -36,6 +36,10 @@ export class Modal {
       "close": () => {
         this.#show = false;
         this.close()
+      },
+      "confirm": async () => {
+        await this.confirm();
+        this.close();
       }
     };
 
@@ -65,12 +69,12 @@ export class Modal {
   }
 
   static modalMap = {
-  "custom": ({ isCustom, customContent, modalId }) => {
+  "custom": ({ isCustom, customContent, modalId } = {}) => {
     console.log(modalClass, "modalClass");
     const anchorTemplate = modalTemplate({ isCustom, customContent, modalId, class:modalClass});
     return anchorTemplate;
   },
-  "default": (options) => {
+  "default": (options = {}) => {
 
     //默认不是说完全使用默认模板，而是可以部分替换，部分使用自定义模板，意思是不完全替换
     const title = options?.head?.title ?? "标题";
@@ -79,15 +83,16 @@ export class Modal {
     const confirmText = options?.footer?.confirmText ?? "确定";
 
     const headTemplate = options?.customHeader ?? modalHeadTemplate({ title,class:modalClass });
-    const mainTemplate = options?.customMain ?? modalMainTemplate("modal-main").getHTMLStr({ mainContent });
+    const mainTemplate = options?.customMain ?? modalMainTemplate({ mainContent, class:modalClass });
     const footerTemplate = options?.customFooter ?? modalFootTemplate({ closeText, confirmText });
-    const anchorTemplate = options?.anchor ?? modalTemplate({ headTemplate, mainTemplate, footerTemplate,  modalId:options.modalId});
+    const anchorTemplate = options?.anchor ?? modalTemplate({ headTemplate, mainTemplate, footerTemplate,  modalId:options.modalId, class:modalClass});
 
     return anchorTemplate;
   }
 };
 
-  static modalFactory (options) {
+  static modalFactory (options = {}) {
+
     const modalId = `id-${getUniqueId()}`;
     options.modalId = modalId;
     let anchorTemplate = options.isCustom ? Modal.modalMap["custom"](options) : Modal.modalMap["default"](options);
@@ -98,6 +103,10 @@ export class Modal {
     tempEle.outerHTML = anchorTemplate;
 
     const modal = new Modal({modalId});
+
+    if (options.confirm) {
+      modal.confirm = options.confirm;
+    }
 
     return {
       close: () => modal.close(),

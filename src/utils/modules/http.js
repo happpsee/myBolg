@@ -47,6 +47,16 @@ const requestMap = {
       url: "/api/columns",
       method: "GET",
       withToken: true
+    },
+    "addColumn": {
+      url: "/api/columns",
+      method: "POST",
+      withToken: true
+    },
+    "pubComment": {
+      url: "/api/comments",
+      method: "POST",
+      withToken: true
     }
 };
 
