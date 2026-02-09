@@ -1,0 +1,26 @@
+{{#with class}}
+<div class="{{registryContainer}} animate__fadeIn animate__animated">
+  <div class="{{registryHead}}">
+  <h3 class="{{registryTitle}} text-xl">注册</h3>
+  <i class="{{registryClose}} js-close"></i>
+  </div>
+  <div class="{{registryMain}}">
+    <form action="javasccript:;" class="{{registryForm}}" id="registry">
+      <div class="{{formItems}}">
+      <div class="{{formGroup}}">
+          <label for="username" class="{{controlLabel}} {{formAccount_label}} text-xl"></label>
+          <input type="text" name="username" id="username" class="{{controlInput}} {{formAccount}} text-xs" placeholder="请输入用户名" autocomplete="off">
+      </div>
+      </div>
+      <div class="{{formItems}}">
+      <div class="{{formGroup}}">
+          <label for="password" class="{{controlLabel}} {{formPwdLabel}} text-xl"></label>
+          <input type="text" name="password" class="{{controlInput}} {{formPwd}} text-xs" placeholder="请输入密码" autocomplete="off">
+      </div>
+      </div>
+      <button class="{{submitBtn}}">注册</button>
+    </form>
+  </div>
+</div>
+{{/with}}
+

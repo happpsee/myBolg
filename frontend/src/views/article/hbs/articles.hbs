@@ -1,0 +1,27 @@
+
+<div class="{{class.mainRightScroller}} js-app-right-scroll">
+<div class="{{class.mainRightList}}  animate__animated animate__bounceInRight" {{{labelSign.list}}}>
+{{#each articles}}
+{{#with this}}
+<div class="{{../class.mainRightArticle}}" data-id="{{id}}" {{{../labelSign.listItem}}}>
+  <div class="{{../class.articleTitle}} text-xl">
+    {{articleTitle}}
+  </div>
+  <div class="{{../class.articleDes}} text-sm">
+    {{articleDes}}
+  </div>
+  <div class="{{../class.articleAbout}} text-xs">
+    <span class="{{../class.articleDate}}"><span class="{{../class.articleDateIcon}} "></span><span>{{createdDate}}</span></span>
+    <div class="{{../class.articleLike}}"><span class="{{../class.articleLikeIcon}}"></span>{{likeNums}}<span></span></div>
+    <div class="{{../class.articleComment}}"><span class="{{../class.articleCommentIcon}}"></span><span>{{commentNums}}</span></div>
+    <div class="{{../class.articleTags}}">
+      {{#each tags}}
+      <span class="{{../../class.articleTagsItem}}">{{this}}</span>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/with}}
+{{/each}}
+</div>
+</div>

@@ -1,0 +1,32 @@
+@import "@/styl/variable.styl"
+  
+
+.avatar-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+}
+
+.avatar-img {
+  display: block;
+  max-width: 100%;
+}
+
+.close {
+  transition();
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url("/img/close-white.svg");
+  background-size: 30px;
+  cursor: pointer;
+
+  &:hover {
+    transform: rotate(30deg) scale(1.2);
+  }
+}

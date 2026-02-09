@@ -1,0 +1,89 @@
+@import "@/styl/variable.styl";
+.my-modal-wrap {
+  box-shadow-normal()
+  justify-content: center;
+  align-items: center;
+  position: fixed;   
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: modal_bgc;
+  z-index: 10000;
+}
+
+.my-modal-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: base_bgc;
+  border-radius: border_radius;
+  transform: translate(-50%, -50%);
+}
+.modal-bgc {
+  box-shadow-normal()
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: bgc_white;
+  border-radius: border_radius;
+}
+
+.my-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
+  height: 40px;
+  padding-bottom: 10px;
+}
+
+.my-modal-title {
+  color:text_color;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.my-modal-btn--close {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url("/img/close.svg");
+  background-size: 18px;
+  cursor: pointer;
+   transition: all .3;
+
+  &:hover {
+   
+    transform: rotate(-50deg) scale(1.2);
+  }
+
+}
+
+.my-modal-main {
+  padding: 25px;
+  border-top: 2px solid border_color;
+  border-bottom: 2px solid border_color;
+}
+
+.my-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 20px;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+
+  button {
+    box-shadow-normal()
+    padding: 10px 30px;
+    color: text_color;
+    background-color: bgc_white;
+    border-radius: border_radius;
+  }
+
+
+}

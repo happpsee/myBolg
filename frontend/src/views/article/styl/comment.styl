@@ -1,0 +1,98 @@
+// <div class="comment-list">
+//   <div class="comment-item">
+//     <div class="left">
+//       <img class="avatar" src="https://ts1.tc.mm.bing.net/th/id/OIP-C.cKDKjkhDnWEn4z3iztwj0gHaO0?w=149&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"></img>
+//     </div>
+//     <div class="right">
+//       <div class="content">这是一个品论</div>
+//       <div class="about">
+//         <div class="date">发表日期 <span class="date--text">2026-2-2</span></div>
+//         <div class="like-num">点赞 <span class="like-num--text">1111k</span></div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+@import "@/styl/variable.styl";
+
+.comment-list-title {
+  background-color: bgc_white;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 10px;
+  border-bottom: 1px solid #e3e5e7;
+}
+
+.comment-item {
+  display: flex;
+  column-gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px 10px 10px 10px;
+  border-top: 1px solid #e3e5e7;
+  border-radius: border_radius;
+}
+
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.nick-name {
+  color:#61666D;
+}
+
+.content {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: text_color;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about {
+  display: flex;
+  column-gap: 20px;
+}
+
+
+
+.about-item {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  color: input_placeholder_color;
+}
+
+.date-icon {
+  width: 12px;
+  height: 12px;
+  background: url("/img/date.svg");
+  background-size: 12px;
+}
+
+.date-text {
+  color:text_color;
+}
+
+.like-icon {
+  width: 12px;
+  height: 12px;
+  background: url("/img/like.svg");
+  background-size: 12px;
+}
+.like-num-text {
+  color: text_color;
+}

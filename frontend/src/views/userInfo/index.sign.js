@@ -1,0 +1,13 @@
+export default ["form", 
+  "btn", 
+  "nickname", 
+  "email", 
+  "signature", 
+  "mask", 
+  "avatarWrap", 
+  "avatarInput", 
+  "avatarImg",
+  "avatarTools",
+  "avatarOperateClose", 
+  "avatarOperateImg",
+  "description"];

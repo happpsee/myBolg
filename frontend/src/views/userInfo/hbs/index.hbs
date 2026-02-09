@@ -1,0 +1,31 @@
+<div class="{{class.wrap}}">
+  <div class="title text-2xl">个人信息</div>
+
+  <div class="{{class.avatarWrap}}" {{{labelSign.avatarWrap}}}>
+    <input type="file" class="{{class.avatarInput}}" title="" {{{labelSign.avatarInput}}}>
+    <img class="{{class.avatar}}" src="{{avatarSrc}}" {{{labelSign.avatarImg}}}></img>
+    <div class="{{class.mask}}" hidden {{{labelSign.mask}}}></div>
+  </div>
+  <div class="{{class.avatarTitle}}" >点击头像切换</div>
+  <div class="{{class.avatarTools}}"  {{{labelSign.avatarTools}}}>
+    <span class="{{class.avatarScan}} {{class.avatarToolItem}} text-sm" data-action="scan">点击查看</span>
+    <span class="{{class.avatarCrop}} {{class.avatarToolItem}} text-sm" data-action="crop">点击裁剪</span>
+  </div>
+
+  <form action="javascript:;" class="{{class.form}}" {{{labelSign.form}}}>
+    {{#each form}}
+    {{#with this}}
+    <div class="{{../class.formGroup}}">
+      <label for="{{field}}">{{label}}</label>
+      <input class="{{../class.formInput}}" id="{{field}}" {{{sign}}} type="{{type}}" , placeholder="{{placeholder}}" ,
+        {{#if readonly}} readonly{{/if}} {{#if value}}value="{{value}}" {{/if}}>
+    </div>
+    {{/with}}
+    {{/each}}
+
+    <div class="{{class.btns}}" {{{labelSign.btn}}}>
+      <button class=" {{class.btn}} text-xl" data-action="cancel">取消</button>
+      <button class="{{class.btn}} text-xl" data-action="confirm">确认修改</button>
+    </div>
+  </form>
+</div>
